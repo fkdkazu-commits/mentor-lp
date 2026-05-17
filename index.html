@@ -876,50 +876,59 @@ footer a { color: #60a5fa; text-decoration: none; }
     </p>
 
     <div class="form-wrap">
-      <div class="form-title">無料相談フォーム</div>
-      <div class="form-sub">通常1営業日以内にご返信します</div>
-      <form action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="f52b6018-916c-40c4-bbbd-79964f0c6609">
-        <input type="hidden" name="subject" value="【Claude Code メンター】無料相談申込">
-        <input type="hidden" name="redirect" value="">
-        <div class="form-row">
-          <label class="form-label">お名前 <span style="color:#ef4444;">*</span></label>
-          <input class="form-input" type="text" name="name" placeholder="山田 太郎" required>
-        </div>
-        <div class="form-row">
-          <label class="form-label">メールアドレス <span style="color:#ef4444;">*</span></label>
-          <input class="form-input" type="email" name="email" placeholder="your@email.com" required>
-        </div>
-        <div class="form-row">
-          <label class="form-label">現在のご職業</label>
-          <select class="form-select" name="job">
-            <option value="">選択してください</option>
-            <option>IT職・エンジニア</option>
-            <option>Web制作者・デザイナー</option>
-            <option>SEO担当・マーケター</option>
-            <option>フリーランス</option>
-            <option>事務職</option>
-            <option>営業</option>
-            <option>DX推進担当</option>
-            <option>その他</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label class="form-label">Claude Code の経験</label>
-          <select class="form-select" name="experience">
-            <option value="">選択してください</option>
-            <option>触ったことがない（これから）</option>
-            <option>少し触ったことがある</option>
-            <option>ある程度使っているが仕事にならない</option>
-          </select>
-        </div>
-        <div class="form-row">
-          <label class="form-label">相談内容・ご質問</label>
-          <textarea class="form-textarea" name="message" placeholder="現状やご質問などをご自由にお書きください（任意）"></textarea>
-        </div>
-        <button type="submit" class="form-btn">無料相談を申し込む →</button>
-        <p class="form-privacy">送信いただいた情報は、サービスご案内の目的以外に使用しません。</p>
-      </form>
+      <div id="mentorSuccessMsg" style="display:none;text-align:center;padding:24px 0;">
+        <div style="font-size:52px;margin-bottom:14px;">✅</div>
+        <h3 style="font-size:20px;font-weight:900;color:#0f172a;margin-bottom:10px;">送信完了しました</h3>
+        <p style="font-size:14px;color:#64748b;line-height:1.8;">
+          無料相談のお申し込みありがとうございます。<br>
+          ご入力のメールアドレスに受付確認メールをお送りしました。<br>
+          通常1営業日以内にご返信いたします。
+        </p>
+      </div>
+      <div id="mentorFormInner">
+        <div class="form-title">無料相談フォーム</div>
+        <div class="form-sub">通常1営業日以内にご返信します</div>
+        <div id="mentorErrorMsg" style="display:none;color:#ef4444;font-size:13px;margin-bottom:12px;">送信に失敗しました。時間をおいて再度お試しください。</div>
+        <form id="mentorForm">
+          <div class="form-row">
+            <label class="form-label">お名前 <span style="color:#ef4444;">*</span></label>
+            <input class="form-input" type="text" name="name" placeholder="山田 太郎" required>
+          </div>
+          <div class="form-row">
+            <label class="form-label">メールアドレス <span style="color:#ef4444;">*</span></label>
+            <input class="form-input" type="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-row">
+            <label class="form-label">現在のご職業</label>
+            <select class="form-select" name="job">
+              <option value="">選択してください</option>
+              <option>IT職・エンジニア</option>
+              <option>Web制作者・デザイナー</option>
+              <option>SEO担当・マーケター</option>
+              <option>フリーランス</option>
+              <option>事務職</option>
+              <option>営業</option>
+              <option>DX推進担当</option>
+              <option>その他</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label class="form-label">Claude Code の経験</label>
+            <select class="form-select" name="experience">
+              <option value="">選択してください</option>
+              <option>触ったことがない（これから）</option>
+              <option>少し触ったことがある</option>
+              <option>ある程度使っているが仕事にならない</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label class="form-label">相談内容・ご質問</label>
+            <textarea class="form-textarea" name="message" placeholder="現状やご質問などをご自由にお書きください（任意）"></textarea>
+          </div>
+          <button type="submit" class="form-btn" id="mentorSubmitBtn">無料相談を申し込む →</button>
+          <p class="form-privacy">送信いただいた情報は、サービスご案内の目的以外に使用しません。</p>
+        </form>
+      </div>
     </div>
 
     <div style="margin-top:40px;">
@@ -948,6 +957,45 @@ footer a { color: #60a5fa; text-decoration: none; }
 
 <script>
 function toggleFaq(el) { el.classList.toggle('open'); }
+
+document.getElementById('mentorForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const btn = document.getElementById('mentorSubmitBtn');
+  const errMsg = document.getElementById('mentorErrorMsg');
+  errMsg.style.display = 'none';
+  btn.disabled = true;
+  btn.textContent = '送信中…';
+
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData);
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: 'f52b6018-916c-40c4-bbbd-79964f0c6609',
+        subject: '【Claude Code メンター】無料相談申込',
+        replyto: data.email,
+        ...data,
+        autoresponse: true,
+        autoresponse_subject: '【受付完了】Claude Code 実務伴走メンター 無料相談',
+        autoresponse_message: `${data.name} 様\n\nお申し込みありがとうございます。\n以下の内容で無料相談を受け付けました。\n\n---\n【お名前】${data.name}\n【職業】${data.job || '未入力'}\n【Claude Code 経験】${data.experience || '未入力'}\n【相談内容】${data.message || '未入力'}\n---\n\n通常1営業日以内にご返信いたします。\n\n福田和弘 | Claude Code 実務伴走メンター\nhttps://fkdkazu-commits.github.io/mentor-lp/`
+      })
+    });
+    const json = await res.json();
+    if (json.success) {
+      document.getElementById('mentorFormInner').style.display = 'none';
+      document.getElementById('mentorSuccessMsg').style.display = 'block';
+    } else {
+      throw new Error('送信失敗');
+    }
+  } catch {
+    errMsg.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = '無料相談を申し込む →';
+  }
+});
 </script>
 </body>
 </html>
