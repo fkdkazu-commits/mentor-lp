@@ -881,8 +881,7 @@ footer a { color: #60a5fa; text-decoration: none; }
         <h3 style="font-size:20px;font-weight:900;color:#0f172a;margin-bottom:10px;">送信完了しました</h3>
         <p style="font-size:14px;color:#64748b;line-height:1.8;">
           無料相談のお申し込みありがとうございます。<br>
-          ご入力のメールアドレスに受付確認メールをお送りしました。<br>
-          通常1営業日以内にご返信いたします。
+          通常1営業日以内にご連絡いたします。
         </p>
       </div>
       <div id="mentorFormInner">
@@ -977,10 +976,7 @@ document.getElementById('mentorForm').addEventListener('submit', async function(
         access_key: 'f52b6018-916c-40c4-bbbd-79964f0c6609',
         subject: '【Claude Code メンター】無料相談申込',
         replyto: data.email,
-        ...data,
-        autoresponse: true,
-        autoresponse_subject: '【受付完了】Claude Code 実務伴走メンター 無料相談',
-        autoresponse_message: `${data.name} 様\n\nお申し込みありがとうございます。\n以下の内容で無料相談を受け付けました。\n\n---\n【お名前】${data.name}\n【職業】${data.job || '未入力'}\n【Claude Code 経験】${data.experience || '未入力'}\n【相談内容】${data.message || '未入力'}\n---\n\n通常1営業日以内にご返信いたします。\n\n福田和弘 | Claude Code 実務伴走メンター\nhttps://fkdkazu-commits.github.io/mentor-lp/`
+        ...data
       })
     });
     const json = await res.json();
