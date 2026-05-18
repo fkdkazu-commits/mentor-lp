@@ -175,11 +175,7 @@ body {
   background: linear-gradient(180deg, #eff6ff 0%, #fff 100%);
 }
 .hero-inner {
-  max-width: 900px; margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 48px;
-  align-items: center;
+  max-width: 680px; margin: 0 auto;
 }
 .hero-text { text-align: left; }
 .hero-illust { display: flex; justify-content: center; align-items: center; }
@@ -560,12 +556,6 @@ footer {
 footer a { color: #60a5fa; text-decoration: none; }
 
 @media (max-width: 860px) {
-  .hero-inner { grid-template-columns: 1fr; }
-  .hero-text { text-align: left; }
-  .hero-cta { justify-content: flex-start; }
-  .hero-eyebrow { display: inline-flex; }
-  .hero-illust { margin-top: 8px; }
-  .hero-illust img { max-width: 100%; height: auto; }
   .hamburger { display: flex; }
   .nav-links {
     display: none;
@@ -685,18 +675,6 @@ footer a { color: #60a5fa; text-decoration: none; }
       <p class="hero-note">少人数制 ／ いつでも解約可能</p>
     </div>
 
-    <!-- 写真 -->
-    <div class="hero-illust">
-      <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
-        <img src="自撮り笑顔_小.png" alt="福田和弘 - Claude Code 個別家庭教師"
-          style="width:300px;height:300px;object-fit:cover;border-radius:50%;border:5px solid #dbeafe;box-shadow:0 8px 40px rgba(37,99,235,0.18);">
-        <div style="background:#fff;border:1px solid #dbeafe;border-radius:12px;padding:12px 24px;box-shadow:0 4px 16px rgba(37,99,235,0.1);text-align:center;">
-          <div style="font-size:11px;color:#2563eb;font-weight:700;margin-bottom:2px;">👤 担当講師</div>
-          <div style="font-size:15px;color:#0f172a;font-weight:700;">福田 和弘</div>
-          <div style="font-size:11px;color:#64748b;margin-top:2px;">Claude Code × AWS 開発</div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
