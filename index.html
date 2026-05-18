@@ -82,6 +82,12 @@ body {
 
 /* ── サービスプルダウン ── */
 .nav-links { display: flex; align-items: center; gap: 24px; }
+.nav-link {
+  font-size: 13px; font-weight: 700; color: #475569;
+  text-decoration: none; transition: color 0.2s;
+}
+.nav-link:hover { color: #2563eb; }
+@media (max-width: 860px) { .nav-link { display: none; } }
 .nav-dropdown { position: relative; }
 .nav-dropdown-trigger {
   font-size: 13px; font-weight: 700; color: #475569;
@@ -566,6 +572,10 @@ footer a { color: #60a5fa; text-decoration: none; }
           </div>
         </div>
       </div>
+      <a href="#service" class="nav-link">サービス内容</a>
+      <a href="#curriculum" class="nav-link">カリキュラム</a>
+      <a href="#pricing" class="nav-link">料金</a>
+      <a href="#faq" class="nav-link">FAQ</a>
       <a href="#contact" class="nav-cta">無料相談する</a>
     </div>
   </div>
