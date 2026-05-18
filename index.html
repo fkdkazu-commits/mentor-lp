@@ -80,6 +80,66 @@ body {
 }
 .nav-cta:hover { background: #1d4ed8; }
 
+/* ── サービスプルダウン ── */
+.nav-links { display: flex; align-items: center; gap: 24px; }
+.nav-dropdown { position: relative; }
+.nav-dropdown-trigger {
+  font-size: 13px; font-weight: 700; color: #475569;
+  cursor: pointer; user-select: none;
+  display: flex; align-items: center; gap: 4px;
+  transition: color 0.2s;
+}
+.nav-dropdown-trigger:hover { color: #2563eb; }
+.nav-dropdown-trigger::after {
+  content: '';
+  display: inline-block;
+  width: 5px; height: 5px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  margin-top: -3px;
+  transition: transform 0.2s;
+}
+.nav-dropdown:hover .nav-dropdown-trigger::after { transform: rotate(-135deg); margin-top: 3px; }
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding-top: 12px;
+  min-width: 230px;
+  z-index: 200;
+  white-space: nowrap;
+}
+.nav-dropdown-menu-inner {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  padding: 6px 0;
+  overflow: hidden;
+}
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  font-size: 13px; font-weight: 600;
+  color: #1e293b;
+  text-decoration: none;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.15s;
+}
+.nav-dropdown-menu a:last-child { border-bottom: none; }
+.nav-dropdown-menu a:hover { background: #eff6ff; color: #2563eb; }
+.nav-menu-badge {
+  display: inline-block;
+  font-size: 10px; font-weight: 700;
+  padding: 2px 7px; border-radius: 10px;
+  margin-left: 8px; vertical-align: middle;
+}
+.badge-orange { background: rgba(217,119,6,0.1); color: #92400e; border: 1px solid rgba(217,119,6,0.25); }
+.badge-blue   { background: rgba(37,99,235,0.08); color: #1d4ed8; border: 1px solid rgba(37,99,235,0.2); }
+
 /* ── Hero ── */
 .hero {
   padding: 120px 24px 80px;
@@ -495,7 +555,19 @@ footer a { color: #60a5fa; text-decoration: none; }
       <span></span>
       Claude Code 個別家庭教師
     </div>
-    <a href="#contact" class="nav-cta">無料相談する</a>
+    <div class="nav-links">
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-trigger">サービス</span>
+        <div class="nav-dropdown-menu">
+          <div class="nav-dropdown-menu-inner">
+            <a href="https://fkdkazu-commits.github.io/ai-consulting-lp/#plans" target="_blank" rel="noopener">Claude Code 導入支援</a>
+            <a href="https://fkdkazu-commits.github.io/ai-consulting-lp/dx-starter-pack.html" target="_blank" rel="noopener">DXスターターパック<span class="nav-menu-badge badge-orange">NEW</span></a>
+            <a href="#">Claude Code 個別家庭教師<span class="nav-menu-badge badge-blue">このページ</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="#contact" class="nav-cta">無料相談する</a>
+    </div>
   </div>
 </nav>
 
