@@ -87,7 +87,28 @@ body {
   text-decoration: none; transition: color 0.2s;
 }
 .nav-link:hover { color: #2563eb; }
-@media (max-width: 860px) { .nav-link { display: none; } }
+/* ── Hamburger ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 36px; height: 36px;
+  background: #fff;
+  border: 2px solid #2563eb;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 7px 6px;
+  z-index: 200;
+  flex-shrink: 0;
+}
+.hamburger span {
+  display: block; width: 100%; height: 2px;
+  background: #2563eb; border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 .nav-dropdown { position: relative; }
 .nav-dropdown-trigger {
   font-size: 13px; font-weight: 700; color: #475569;
@@ -543,8 +564,36 @@ footer a { color: #60a5fa; text-decoration: none; }
   .hero-text { text-align: center; }
   .hero-eyebrow { display: inline-flex; }
   .hero-illust { margin-top: 8px; }
-  .nav-dropdown { display: none; }
-  .nav-link { display: none; }
+  .hamburger { display: flex; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; right: 0;
+    width: 220px;
+    background: #fff;
+    padding: 8px 0 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    border-radius: 0 0 0 10px;
+    border-top: 2px solid #2563eb;
+    z-index: 150;
+  }
+  .nav-links.open { display: flex; }
+  .nav-link {
+    display: block;
+    padding: 12px 20px;
+    font-size: 15px;
+    border-bottom: 1px solid #f0f4f8;
+    color: #0f172a !important;
+  }
+  .nav-dropdown { display: block; width: 100%; }
+  .nav-dropdown-trigger { display: flex; padding: 12px 20px; font-size: 15px; color: #0f172a; border-bottom: 1px solid #f0f4f8; }
+  .nav-dropdown:hover .nav-dropdown-menu { display: none; }
+  .nav-dropdown-menu { display: none; position: static; transform: none; padding-top: 0; box-shadow: none; border: none; border-radius: 0; background: #eff6ff; }
+  .nav-dropdown-menu-inner { border-radius: 0; box-shadow: none; border: none; }
+  .nav-dropdown.open .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu a { padding: 10px 32px; font-size: 14px; border-bottom: 1px solid #f0f4f8; }
+  .nav-cta { display: block; margin: 8px 16px 0; text-align: center; font-size: 15px; border-radius: 6px; }
 }
 @media (max-width: 640px) {
   .hero { padding: 100px 16px 60px; }
@@ -566,7 +615,7 @@ footer a { color: #60a5fa; text-decoration: none; }
       <span></span>
       Claude Code 個別家庭教師
     </div>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
       <a href="https://fkdkazu-commits.github.io/ai-consulting-lp/" class="nav-link">トップ</a>
       <div class="nav-dropdown">
         <span class="nav-dropdown-trigger">サービス</span>
@@ -584,6 +633,9 @@ footer a { color: #60a5fa; text-decoration: none; }
       <a href="#faq" class="nav-link">FAQ</a>
       <a href="#contact" class="nav-cta">お問合せ</a>
     </div>
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
@@ -1067,6 +1119,28 @@ footer a { color: #60a5fa; text-decoration: none; }
 
 <script>
 function toggleFaq(el) { el.classList.toggle('open'); }
+
+// ハンバーガーメニュー
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+function closeNav() {
+  navLinks.classList.remove('open');
+  hamburger.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+}
+hamburger.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const isOpen = navLinks.classList.toggle('open');
+  hamburger.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+});
+document.addEventListener('click', (e) => {
+  if (!navLinks.contains(e.target)) closeNav();
+});
+document.querySelector('.nav-dropdown-trigger').addEventListener('click', (e) => {
+  e.stopPropagation();
+  e.currentTarget.closest('.nav-dropdown').classList.toggle('open');
+});
 
 document.getElementById('mentorForm').addEventListener('submit', async function(e) {
   e.preventDefault();
