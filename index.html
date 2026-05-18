@@ -203,14 +203,17 @@ body {
   background-clip: text;
 }
 .hero-sub {
-  font-size: clamp(15px, 2vw, 18px);
+  font-size: clamp(14px, 1.8vw, 17px);
   color: #64748b;
   line-height: 1.9;
   margin-bottom: 40px;
-  max-width: 560px; margin-left: auto; margin-right: auto;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 .hero-badges {
-  display: flex; justify-content: center; flex-wrap: wrap; gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
   margin-bottom: 44px;
 }
 .hero-badge {
@@ -593,9 +596,7 @@ footer a { color: #60a5fa; text-decoration: none; }
         <em>「何から始めればいいか」</em><br>一緒に解決します。
       </h1>
       <p class="hero-sub">
-        AIに興味はあるのに、何をすればいいかわからない——<br>
-        そんな方を、Claude Code の実務活用・副業・案件化まで<br>
-        1対1でサポートします。
+        AIに興味はあるのに、何をすればいいかわからない——そんな方を、Claude Code の実務活用・副業・案件化まで 1対1でサポートします。
       </p>
       <div class="hero-badges">
         <div class="hero-badge">💰 月額 3,000円（特別価格）</div>
@@ -605,7 +606,6 @@ footer a { color: #60a5fa; text-decoration: none; }
       </div>
       <div class="hero-cta">
         <a href="#contact" class="btn-primary">✉ 無料相談を申し込む</a>
-        <a href="https://fkdkazu-commits.github.io/ai-consulting-lp/" target="_blank" rel="noopener" class="btn-secondary">AI業務自動化支援サービスはこちら →</a>
       </div>
       <p class="hero-note">少人数制 ／ いつでも解約可能</p>
     </div>
