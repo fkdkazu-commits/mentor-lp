@@ -564,13 +564,16 @@ footer a { color: #60a5fa; text-decoration: none; }
   .hero-text { text-align: center; }
   .hero-eyebrow { display: inline-flex; }
   .hero-illust { margin-top: 8px; }
+  .hero-illust img { max-width: 100%; height: auto; }
   .hamburger { display: flex; }
   .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
     top: 100%; right: 0;
-    width: 220px;
+    width: 240px;
+    max-width: calc(100vw - 16px);
+    overflow: hidden;
     background: #fff;
     padding: 8px 0 16px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.15);
@@ -585,14 +588,29 @@ footer a { color: #60a5fa; text-decoration: none; }
     font-size: 15px;
     border-bottom: 1px solid #f0f4f8;
     color: #0f172a !important;
+    white-space: normal;
+    word-break: break-all;
   }
   .nav-dropdown { display: block; width: 100%; }
-  .nav-dropdown-trigger { display: flex; padding: 12px 20px; font-size: 15px; color: #0f172a; border-bottom: 1px solid #f0f4f8; }
+  .nav-dropdown-trigger { display: flex; padding: 12px 20px; font-size: 15px; color: #0f172a; border-bottom: 1px solid #f0f4f8; width: 100%; box-sizing: border-box; }
   .nav-dropdown:hover .nav-dropdown-menu { display: none; }
-  .nav-dropdown-menu { display: none; position: static; transform: none; padding-top: 0; box-shadow: none; border: none; border-radius: 0; background: #eff6ff; }
-  .nav-dropdown-menu-inner { border-radius: 0; box-shadow: none; border: none; }
+  .nav-dropdown-menu {
+    display: none;
+    position: static !important;
+    transform: none !important;
+    padding-top: 0 !important;
+    min-width: 0 !important;
+    white-space: normal !important;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    background: #eff6ff;
+    width: 100%;
+    overflow: hidden;
+  }
+  .nav-dropdown-menu-inner { border-radius: 0; box-shadow: none; border: none; width: 100%; overflow: hidden; }
   .nav-dropdown.open .nav-dropdown-menu { display: block; }
-  .nav-dropdown-menu a { padding: 10px 32px; font-size: 14px; border-bottom: 1px solid #f0f4f8; }
+  .nav-dropdown-menu a { padding: 10px 20px 10px 28px; font-size: 13px; border-bottom: 1px solid #f0f4f8; white-space: normal; word-break: break-all; display: block; }
   .nav-cta { display: block; margin: 8px 16px 0; text-align: center; font-size: 15px; border-radius: 6px; }
 }
 @media (max-width: 640px) {
