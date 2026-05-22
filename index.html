@@ -275,16 +275,32 @@ body {
   margin-bottom: 48px;
 }
 .pain-item {
-  display: flex; gap: 12px; align-items: flex-start;
+  display: flex; flex-direction: column;
   background: #fff;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
-  padding: 16px 18px;
+  overflow: hidden;
   box-shadow: 0 1px 4px rgba(0,0,0,0.05);
 }
+.pain-before {
+  padding: 16px 18px 12px;
+  border-bottom: 1px dashed #cbd5e1;
+}
+.pain-icon-row { display: flex; gap: 10px; align-items: flex-start; }
 .pain-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
 .pain-text { font-size: 14px; color: #64748b; line-height: 1.65; }
 .pain-text strong { color: #1e293b; display: block; margin-bottom: 2px; font-size: 14px; }
+.pain-after {
+  padding: 10px 18px 14px;
+  background: #eff6ff;
+}
+.pain-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.pain-label.before { color: #94a3b8; }
+.pain-label.after  { color: #2563eb; }
+.pain-after-text { font-size: 13px; color: #1d4ed8; font-weight: 700; line-height: 1.6; }
 
 /* ── Solution ── */
 .sol-grid {
@@ -404,6 +420,18 @@ body {
   color: #93c5fd; font-weight: 700; flex-shrink: 0;
 }
 .price-note { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.8; }
+.price-plan-name {
+  font-size: 18px; font-weight: 900; color: #fff;
+  margin-bottom: 16px; letter-spacing: 0.02em;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.price-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
 
 /* ── FAQ ── */
 .faq-list { display: flex; flex-direction: column; gap: 0; }
@@ -612,6 +640,7 @@ footer a { color: #60a5fa; text-decoration: none; }
   .ba-wrap { grid-template-columns: 1fr; }
   .ba-arrow { transform: rotate(90deg); padding: 12px 0; }
   .price-card { padding: 36px 24px; }
+  .price-grid { grid-template-columns: 1fr; }
   .form-wrap { padding: 28px 20px; }
   .container { padding: 0 16px; }
 }
@@ -688,45 +717,94 @@ footer a { color: #60a5fa; text-decoration: none; }
     <p class="sec-lead">AIへの興味はあるのに、最初の一歩が踏み出せない——よくある理由があります。</p>
     <div class="pain-grid">
       <div class="pain-item">
-        <div class="pain-icon">🤔</div>
-        <div class="pain-text">
-          <strong>Claude Codeって何？どこから始めるの？</strong>
-          名前は聞いたことがあるけど、インストール方法すらわからずそのままになっている。
+        <div class="pain-before">
+          <div class="pain-label before">BEFORE</div>
+          <div class="pain-icon-row">
+            <div class="pain-icon">🤔</div>
+            <div class="pain-text"><strong>Claude Codeって何？どこから始めるの？</strong>名前は聞いたことがあるけど、インストール方法すらわからずそのままになっている。</div>
+          </div>
+        </div>
+        <div class="pain-after">
+          <div class="pain-label after">AFTER ✅</div>
+          <div class="pain-after-text">インストール〜初アウトプットまで1回目のセッションで完了</div>
         </div>
       </div>
       <div class="pain-item">
-        <div class="pain-icon">😮‍💨</div>
-        <div class="pain-text">
-          <strong>ChatGPTで試してみたけど、次が見えない</strong>
-          ChatGPTで遊んでみたけど、業務や収益に活かす具体的な方法がわからない。
+        <div class="pain-before">
+          <div class="pain-label before">BEFORE</div>
+          <div class="pain-icon-row">
+            <div class="pain-icon">😮‍💨</div>
+            <div class="pain-text"><strong>ChatGPTで試してみたけど、次が見えない</strong>ChatGPTで遊んでみたけど、業務や収益に活かす具体的な方法がわからない。</div>
+          </div>
+        </div>
+        <div class="pain-after">
+          <div class="pain-label after">AFTER ✅</div>
+          <div class="pain-after-text">Claude Codeで業務ツールを実際に作り始めた</div>
         </div>
       </div>
       <div class="pain-item">
-        <div class="pain-icon">🗺️</div>
-        <div class="pain-text">
-          <strong>情報が多すぎて、何を学べばいいかわからない</strong>
-          X やYouTubeを見ても情報が溢れすぎていて、どこから手をつければいいか迷っている。
+        <div class="pain-before">
+          <div class="pain-label before">BEFORE</div>
+          <div class="pain-icon-row">
+            <div class="pain-icon">🗺️</div>
+            <div class="pain-text"><strong>情報が多すぎて、何を学べばいいかわからない</strong>XやYouTubeを見ても情報が溢れすぎていて、どこから手をつければいいか迷っている。</div>
+          </div>
+        </div>
+        <div class="pain-after">
+          <div class="pain-label after">AFTER ✅</div>
+          <div class="pain-after-text">自分の目的に合ったロードマップが手に入った</div>
         </div>
       </div>
       <div class="pain-item">
-        <div class="pain-icon">🧱</div>
-        <div class="pain-text">
-          <strong>プログラミング未経験だから不安</strong>
-          コードを書いたことがなく、本当に自分にできるのか自信がない。
+        <div class="pain-before">
+          <div class="pain-label before">BEFORE</div>
+          <div class="pain-icon-row">
+            <div class="pain-icon">🧱</div>
+            <div class="pain-text"><strong>プログラミング未経験だから不安</strong>コードを書いたことがなく、本当に自分にできるのか自信がない。</div>
+          </div>
+        </div>
+        <div class="pain-after">
+          <div class="pain-label after">AFTER ✅</div>
+          <div class="pain-after-text">コードを書かずにツールを作れることを体験できた</div>
         </div>
       </div>
       <div class="pain-item">
-        <div class="pain-icon">📣</div>
-        <div class="pain-text">
-          <strong>作れても誰かに見せられるものがない</strong>
-          勉強した気になるけど、ポートフォリオや実績として出せるものがない。
+        <div class="pain-before">
+          <div class="pain-label before">BEFORE</div>
+          <div class="pain-icon-row">
+            <div class="pain-icon">📣</div>
+            <div class="pain-text"><strong>作れても誰かに見せられるものがない</strong>勉強した気になるけど、ポートフォリオや実績として出せるものがない。</div>
+          </div>
+        </div>
+        <div class="pain-after">
+          <div class="pain-label after">AFTER ✅</div>
+          <div class="pain-after-text">ポートフォリオ・実績を一緒に整理し、公開できた</div>
         </div>
       </div>
       <div class="pain-item">
-        <div class="pain-icon">💼</div>
-        <div class="pain-text">
-          <strong>AIを副業・仕事につなげたい</strong>
-          AIスキルを収益化したいけど、どこへ行けばいいか、何をすればいいかわからない。
+        <div class="pain-before">
+          <div class="pain-label before">BEFORE</div>
+          <div class="pain-icon-row">
+            <div class="pain-icon">💼</div>
+            <div class="pain-text"><strong>AIを副業・仕事につなげたい</strong>AIスキルを収益化したいけど、どこへ行けばいいか、何をすればいいかわからない。</div>
+          </div>
+        </div>
+        <div class="pain-after">
+          <div class="pain-label after">AFTER ✅</div>
+          <div class="pain-after-text">案件獲得・副業収益化の具体的な道筋ができた</div>
+        </div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-before">
+          <div class="pain-label before">BEFORE</div>
+          <div class="pain-icon-row">
+            <div class="pain-icon">🏢</div>
+            <div class="pain-text"><strong>業務を自動化したいが、何から手をつければいいかわからない</strong>社内業務の効率化を進めたいが、どのツールを使えばいいか整理できていない。</div>
+          </div>
+        </div>
+        <div class="pain-after">
+          <div class="pain-label after">AFTER ✅</div>
+          <div class="pain-after-text">Claude Codeで見積書・レポート・チャット対応などの自動化を実現できた</div>
         </div>
       </div>
     </div>
@@ -858,33 +936,64 @@ footer a { color: #60a5fa; text-decoration: none; }
     <h2 class="sec-title">シンプルな<em>料金設計</em></h2>
     <p class="sec-lead">継続的なサポートを、負担の少ない価格で。少人数制だから、1人ひとりに集中できます。</p>
 
-    <div class="price-card">
-      <div class="price-badge">早期入会 特別価格</div>
-      <div style="margin-bottom:6px;">
-        <span style="font-size:14px;color:rgba(255,255,255,0.45);text-decoration:line-through;">通常 月額 5,000円</span>
+    <div class="price-grid">
+      <!-- ライトプラン -->
+      <div class="price-card">
+        <div class="price-badge">早期入会 特別価格</div>
+        <div class="price-plan-name">ライトプラン</div>
+        <div style="margin-bottom:6px;">
+          <span style="font-size:14px;color:rgba(255,255,255,0.45);text-decoration:line-through;">通常 月額 5,000円</span>
+        </div>
+        <div class="price-val">3,000<small>円</small></div>
+        <div class="price-unit">税込 ／ 月</div>
+        <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:8px 16px;margin-bottom:20px;font-size:12px;color:rgba(255,255,255,0.85);font-weight:700;">
+          🔒 入会時の価格をずっと保証。値上げしても継続中はずっと3,000円。
+        </div>
+        <ul class="price-features">
+          <li>月2回 1対1 オンラインサポート（各60分）</li>
+          <li>チャット相談 自由（平日対応）</li>
+          <li>個別カリキュラム設計</li>
+          <li>成果物レビュー・フィードバック</li>
+          <li>案件・副業相談</li>
+          <li>いつでも解約可能</li>
+        </ul>
+        <a href="#contact" class="btn-primary" style="width:100%;justify-content:center;margin-bottom:16px;">✉ 無料相談を申し込む</a>
+        <p class="price-note">
+          まずは無料相談にてご状況をお聞きします。<br>
+          無理な勧誘は一切ありません。
+        </p>
       </div>
-      <div class="price-val">3,000<small>円</small></div>
-      <div class="price-unit">税込 ／ 月</div>
-      <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:8px 16px;margin-bottom:20px;font-size:12px;color:rgba(255,255,255,0.85);font-weight:700;">
-        🔒 入会時の価格をずっと保証。値上げしても継続中はずっと3,000円。
+
+      <!-- スタンダードプラン -->
+      <div class="price-card">
+        <div class="price-badge">早期入会 特別価格</div>
+        <div class="price-plan-name">スタンダードプラン</div>
+        <div style="margin-bottom:6px;">
+          <span style="font-size:14px;color:rgba(255,255,255,0.45);text-decoration:line-through;">通常 月額 8,000円</span>
+        </div>
+        <div class="price-val">5,000<small>円</small></div>
+        <div class="price-unit">税込 ／ 月</div>
+        <div style="background:rgba(255,255,255,0.1);border-radius:8px;padding:8px 16px;margin-bottom:20px;font-size:12px;color:rgba(255,255,255,0.85);font-weight:700;">
+          🔒 入会時の価格をずっと保証。値上げしても継続中はずっと5,000円。
+        </div>
+        <ul class="price-features">
+          <li>月4回 1対1 オンラインサポート（各60分）</li>
+          <li>チャット相談 自由（平日対応）</li>
+          <li>個別カリキュラム設計</li>
+          <li>成果物レビュー・フィードバック</li>
+          <li>案件・副業相談</li>
+          <li>いつでも解約可能</li>
+        </ul>
+        <a href="#contact" class="btn-primary" style="width:100%;justify-content:center;margin-bottom:16px;">✉ 無料相談を申し込む</a>
+        <p class="price-note">
+          まずは無料相談にてご状況をお聞きします。<br>
+          無理な勧誘は一切ありません。
+        </p>
       </div>
-      <ul class="price-features">
-        <li>月2回 1対1 オンラインサポート（各60分）</li>
-        <li>チャット相談 自由（平日対応）</li>
-        <li>個別カリキュラム設計</li>
-        <li>成果物レビュー・フィードバック</li>
-        <li>案件・副業相談</li>
-        <li>いつでも解約可能</li>
-      </ul>
-      <a href="#contact" class="btn-primary" style="width:100%;justify-content:center;margin-bottom:16px;">✉ 無料相談を申し込む</a>
-      <p class="price-note">
-        まずは無料相談にてご状況をお聞きします。<br>
-        無理な勧誘は一切ありません。
-      </p>
     </div>
 
     <p style="text-align:center;font-size:13px;color:#94a3b8;">
-      ※ 少人数制のため、満員の場合はウェイティングリスト対応となります
+      ※ 上記特別価格は、定員に達しましたら、通常価格に戻させていただきます
     </p>
   </div>
 </section>
