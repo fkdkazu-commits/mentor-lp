@@ -214,6 +214,8 @@ body {
 }
 .hero h1 em {
   font-style: normal;
+  word-break: keep-all;
+  white-space: nowrap;
   background: linear-gradient(135deg, #2563eb, #7c3aed);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -693,8 +695,8 @@ footer a { color: #60a5fa; text-decoration: none; }
         AIに興味はあるのに、何をすればいいかわからない——そんな方を、Claude Code の実務活用・副業・案件化まで 1対1でサポートします。
       </p>
       <div class="hero-badges">
-        <div class="hero-badge">💰 月額 3,000円（特別価格）</div>
-        <div class="hero-badge">🎥 月2回オンラインサポート</div>
+        <div class="hero-badge">💰 月額 3,000円〜（特別価格）</div>
+        <div class="hero-badge">🎥 月2回〜4回 オンラインサポート</div>
         <div class="hero-badge">💬 チャット相談自由</div>
         <div class="hero-badge">👤 1対1 個別サポート</div>
         <div class="hero-badge">👨‍💻 現役エンジニアが直接伴走</div>
@@ -727,7 +729,7 @@ footer a { color: #60a5fa; text-decoration: none; }
         </div>
         <div class="pain-after">
           <div class="pain-label after">AFTER ✅</div>
-          <div class="pain-after-text">Claude Codeで業務ツールを実際に作り始めた</div>
+          <div class="pain-after-text">Claude Codeで業務ツールを作る具体的な方法が理解できるようになった</div>
         </div>
       </div>
       <div class="pain-item">
@@ -845,12 +847,12 @@ footer a { color: #60a5fa; text-decoration: none; }
       </div>
       <div class="sol-card">
         <div class="sol-num">02 — 実務支援</div>
-        <div class="sol-title">要件定義から<br>AWS運用まで</div>
-        <div class="sol-desc">クライアントへの提案方法・要件定義・業務自動化設計まで対応。作ったシステムをクライアントが実際に使えるようにするにはAWSが必要になるため、その構築・運用まで一緒にサポートします。</div>
+        <div class="sol-title">要件定義から<br>本番運用まで</div>
+        <div class="sol-desc">クライアントへの提案方法・要件定義・業務自動化設計まで対応。作ったシステムをクライアントが実際に使えるようにするには、AWSなどのクラウド環境への本番展開が必要になるケースもあります。要件定義から構築・運用まで一緒にサポートします。</div>
         <div class="sol-tags">
           <span class="sol-tag">要件定義</span>
           <span class="sol-tag">提案方法</span>
-          <span class="sol-tag">AWS運用</span>
+          <span class="sol-tag">本番運用</span>
           <span class="sol-tag">自動化設計</span>
         </div>
       </div>
@@ -1016,15 +1018,6 @@ footer a { color: #60a5fa; text-decoration: none; }
       </div>
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">
-          AWS未経験でも大丈夫ですか？
-          <span class="faq-chevron">⌄</span>
-        </div>
-        <div class="faq-a">
-          問題ありません。1〜2ヶ月目は Claude Code の基礎・アプリ開発を中心に進め、AWSは2ヶ月目以降から「使える範囲だけ」段階的に学びます。S3・Lambda などの最低限を実務で使えるレベルまでサポートします。
-        </div>
-      </div>
-      <div class="faq-item" onclick="toggleFaq(this)">
-        <div class="faq-q">
           途中で解約できますか？
           <span class="faq-chevron">⌄</span>
         </div>
@@ -1034,11 +1027,38 @@ footer a { color: #60a5fa; text-decoration: none; }
       </div>
       <div class="faq-item" onclick="toggleFaq(this)">
         <div class="faq-q">
+          月の途中で申し込んだ場合、日割りとかになりますか？
+          <span class="faq-chevron">⌄</span>
+        </div>
+        <div class="faq-a">
+          日割りではなく、初回の受講日を1日目として、そこから1ヶ月間となります。
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
           オンラインサポートはどのツールで行いますか？
           <span class="faq-chevron">⌄</span>
         </div>
         <div class="faq-a">
           Google Meet を使用します。日程は毎月柔軟に調整します。チャット相談は Discord・ChatWork・Slack・LINE など、使いやすいツールで構いません。
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          Macでもよいですか？
+          <span class="faq-chevron">⌄</span>
+        </div>
+        <div class="faq-a">
+          はい、問題ありません。Claude Code は Mac・Windows・Linux いずれでも利用できます。むしろ Mac で学習される方も多く、OSに合わせて環境構築からサポートします。
+        </div>
+      </div>
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-q">
+          ツール開発を依頼することも出来ますか？
+          <span class="faq-chevron">⌄</span>
+        </div>
+        <div class="faq-a">
+          はい、可能です。どうしても難易度の高いツール開発など、別途ご依頼いただければ、お見積もりいたします。
         </div>
       </div>
     </div>
@@ -1063,8 +1083,11 @@ footer a { color: #60a5fa; text-decoration: none; }
         </div>
       </div>
 
-      <p style="font-size:14px;color:#475569;line-height:1.85;margin-bottom:20px;">
-        ChatGPT・画像生成・動画AI・音声AIなど、AIツール全般を幅広く・体系的に学べるオンラインスクールです。私自身も現役受講生として、常に最新のAI活用を学び続けています。
+      <p style="font-size:14px;color:#475569;line-height:1.85;margin-bottom:8px;">
+        チャエンさんが運営している、ChatGPT・画像生成・動画AI・音声AIなど、AIツール全般を幅広く・体系的に学べるオンラインスクールです。私自身も現役受講生として、常に最新のAI活用を学び続けています。
+      </p>
+      <p style="margin-bottom:20px;">
+        <a href="https://x.com/masahirochaen?s=20" target="_blank" rel="noopener" style="font-size:13px;color:#2563eb;font-weight:700;text-decoration:none;">𝕏 @masahirochaen</a>
       </p>
 
       <!-- 特徴リスト -->
