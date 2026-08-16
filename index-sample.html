@@ -686,6 +686,160 @@ footer a { color: #7fb2f0; text-decoration: none; }
 .hero-eyebrow{background:rgba(255,255,255,.08) !important;color:#7fb2f0 !important;border:1px solid rgba(255,255,255,.28) !important}
 .hero-badge{background:rgba(255,255,255,.06) !important;border:1px solid rgba(255,255,255,.22) !important;color:rgba(255,255,255,.9) !important;border-radius:4px}
 .hero .btn-primary{background:#2f6fd0 !important;color:#fff !important}
+
+/* ============================================================
+   ai-consulting-lp トップページの寸法・字送りに合わせる
+   ============================================================ */
+.container{max-width:1040px;padding:0 24px}
+.section{padding:92px 0}
+.section-alt{background:#f6f8fb}
+
+/* セクションラベル：囲みをやめて文字だけに */
+.sec-tag{display:block !important;background:none !important;border:0 !important;
+  padding:0 !important;border-radius:0 !important;
+  font-size:12px;font-weight:700;letter-spacing:.18em;color:#2f6fd0;margin-bottom:14px}
+.sec-title{font-size:clamp(26px,3.6vw,40px);line-height:1.4;letter-spacing:-.02em;margin-bottom:20px;color:#0b2138}
+.sec-title em{font-style:normal;color:#2f6fd0}
+.sec-lead{font-size:16px;color:#5a6b7d;line-height:1.9;max-width:680px;margin-bottom:48px}
+
+/* 料金：紺のグラデーション角丸 → 単色の面で見せる */
+.price-card{background:#0b2138 !important;border-radius:0;padding:48px 44px;max-width:none}
+.price-badge{border-radius:3px}
+
+/* 最終CTA：グラデーション → 単色 */
+.cta-section{background:#102a43 !important;padding:96px 24px}
+
+/* お悩みカード：枠線を消して罫線区切りに揃える */
+.pain-item{background:none;border:0;border-radius:0}
+.pain-before,.pain-after{border-radius:0}
+
+/* カリキュラム・FAQ・フォームの角丸をさらに抑える */
+.cur-card,.faq-item,.form-wrap,.ba-box{border-radius:0}
+.form-input,.form-select,.form-textarea{border-radius:4px}
+
+/* ナビゲーション：トップと同じ細い罫線と字送り */
+.nav{border-bottom:1px solid #dfe6ee}
+.nav-link{font-size:13.5px;font-weight:700;color:#5a6b7d}
+.nav-cta{background:#0b2138;border-radius:6px}
+
+/* ── サービス／カリキュラム：カードをやめ、罫線で仕切る面に ── */
+.sol-grid,.curriculum-grid{gap:2px;background:#dfe6ee;border:1px solid #dfe6ee}
+.sol-card,.cur-card{background:#fff;border:0 !important;border-radius:0 !important;
+  box-shadow:none !important;padding:34px 30px;height:auto}
+.sol-card::before,.cur-card::before{display:none !important}
+.sol-num{color:#2f6fd0;font-weight:900;letter-spacing:.12em;font-size:12px;margin-bottom:12px}
+.sol-title{font-size:19px;font-weight:900;line-height:1.55;letter-spacing:-.01em;margin-bottom:12px}
+.sol-desc{font-size:14.5px;color:#5a6b7d;line-height:1.9}
+.sol-tag{background:none;border:1px solid #dfe6ee;border-radius:3px;color:#5a6b7d;font-size:12px;padding:4px 11px}
+.cur-month{color:#2f6fd0;font-weight:900;letter-spacing:.12em;font-size:12px;margin-bottom:10px}
+.cur-title{font-size:19px;font-weight:900;line-height:1.55;margin-bottom:14px}
+.cur-list li{font-size:14px;color:#5a6b7d;line-height:1.95}
+
+/* ── 料金：面で見せる（角丸・影なし） ── */
+.price-grid{gap:2px;background:#dfe6ee;border:1px solid #dfe6ee}
+.price-card{border-radius:0 !important;box-shadow:none !important;border:0 !important}
+.price-features li{font-size:14px;line-height:1.95}
+
+/* ── Before / After：塗りを薄くし角丸を落とす ── */
+.ba-wrap{gap:2px}
+.ba-box{border-radius:0 !important;box-shadow:none !important;padding:30px 28px}
+.ba-box.before{background:#f7f8f9;border:1px solid #e4e7ea}
+.ba-box.after{background:#f4f8fd;border:1px solid #d6e4f6}
+.ba-label{font-size:12px;font-weight:900;letter-spacing:.14em;margin-bottom:16px}
+.ba-list li{font-size:14.5px;line-height:2}
+.ba-arrow{color:#2f6fd0}
+
+/* ── FAQ：罫線区切りに ── */
+.faq-list{border-top:1px solid #dfe6ee}
+.faq-item{background:none !important;border:0 !important;border-bottom:1px solid #dfe6ee !important;
+  border-radius:0 !important;box-shadow:none !important;margin-bottom:0;padding:6px 0}
+.faq-q{font-size:16.5px;font-weight:900;line-height:1.6}
+.faq-a{font-size:14.5px;color:#5a6b7d;line-height:1.95}
+
+/* ── フォーム：白い面に ── */
+.form-wrap{background:#fff;border:1px solid #dfe6ee;border-radius:0 !important;box-shadow:none !important;padding:44px 40px}
+.form-btn{border-radius:6px;box-shadow:none;background:#2f6fd0}
+
+/* ── ヒーロー：ai-consulting-lp トップと同じ「写真＋単色オーバーレイ・左寄せ」 ── */
+.hero{
+  position:relative;overflow:hidden;text-align:left !important;
+  background:#0b2138 url('https://images.unsplash.com/photo-1781246435700-afec19012b45?w=1800&q=80') center/cover no-repeat !important;
+  padding:112px 0 100px;
+}
+.hero::before{content:'';position:absolute;inset:0;background:rgba(9,26,44,.84);z-index:0}
+.hero::after{display:none !important}
+.hero-inner{position:relative;z-index:1;max-width:1040px;margin:0 auto;padding:0 24px;text-align:left}
+.hero-text{text-align:left;margin:0}
+.hero-eyebrow{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.12em;
+  background:none !important;border:1px solid rgba(255,255,255,.34);color:#fff;
+  padding:7px 16px;border-radius:4px;margin-bottom:30px;box-shadow:none}
+.hero h1{font-size:clamp(28px,4.6vw,50px);line-height:1.38;letter-spacing:-.02em;margin-bottom:24px;color:#fff}
+.hero h1 em{font-style:normal;color:#fff !important;-webkit-text-fill-color:#fff !important;
+  background:none !important;border-bottom:4px solid #2f6fd0;padding-bottom:2px}
+.hero-sub{font-size:clamp(15px,1.8vw,17.5px);color:rgba(255,255,255,.82);line-height:1.95;
+  max-width:680px;margin:0 0 38px}
+
+/* 特徴：箱をやめ、左の細い縦線で並べる（トップの hero-cred と同じ手法） */
+.hero-badges{display:flex !important;flex-wrap:wrap;gap:14px 34px;justify-content:flex-start !important;
+  max-width:none;margin:0 0 40px}
+.hero-badge{background:none !important;border:0 !important;border-left:2px solid #2f6fd0 !important;
+  border-radius:0 !important;box-shadow:none !important;padding:2px 0 2px 14px !important;
+  font-size:13.5px;font-weight:700;color:rgba(255,255,255,.92);justify-content:flex-start}
+
+.hero-cta{display:flex;justify-content:flex-start;margin:0 0 18px}
+.hero .btn-primary{background:#2f6fd0 !important;color:#fff !important;border-radius:6px;
+  box-shadow:none !important;padding:16px 34px;font-size:15px;font-weight:700}
+.hero-note{text-align:left;font-size:13px;color:rgba(255,255,255,.6)}
+
+.hero h1 .from{display:block;font-size:clamp(17px,2.1vw,23px);font-weight:700;
+  color:rgba(255,255,255,.78) !important;-webkit-text-fill-color:rgba(255,255,255,.78) !important;
+  background:none !important;margin-bottom:10px;letter-spacing:0}
+.divider{height:0;background:none;margin:0}
+
+/* ── 料金：抽象的な円の装飾をやめ、左寄せの面に ── */
+.price-card{position:relative;overflow:hidden;text-align:left;padding:44px 40px}
+.price-card::before,.price-card::after{display:none !important;content:none !important}
+.price-badge{background:none !important;border:1px solid rgba(255,255,255,.34) !important;
+  border-radius:3px !important;color:#fff;font-size:11.5px;font-weight:900;letter-spacing:.1em;
+  padding:5px 12px;margin-bottom:18px;box-shadow:none}
+.price-plan-name{font-size:19px;font-weight:900;color:#fff;margin-bottom:18px;
+  padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.18)}
+.price-val{color:#fff;letter-spacing:-.02em}
+.price-unit{color:rgba(255,255,255,.6)}
+.price-features li{color:rgba(255,255,255,.8)}
+.price-note{color:rgba(255,255,255,.62);font-size:13px;line-height:1.9}
+
+.price-grid{align-items:stretch}
+.price-card{height:100%}
+.price-features{flex:1}
+.price-card .btn-primary,.form-btn,.cta-section .btn-primary{border-radius:6px !important;box-shadow:none !important}
+
+/* ── スクール紹介：インラインstyleの紫グラデ・角丸カードを上書き ── */
+#school > .container > div[style]{
+  background:#fff !important;border:1px solid #dfe6ee !important;border-radius:0 !important;
+  box-shadow:none !important;max-width:none !important;margin:0 !important;padding:44px 40px !important}
+#school div[style*="linear-gradient"]{
+  background:#0b2138 !important;border-radius:4px !important;box-shadow:none !important}
+#school div[style*="#f0f5fb"]{
+  background:none !important;border-radius:0 !important;border-top:1px solid #dfe6ee !important;
+  padding:20px 0 0 !important;margin-bottom:0 !important}
+#school div[style*="#f0f5fb"] + div[style*="#f0f5fb"]{margin-top:0}
+#school [style*="#7c3aed"]{color:#0b2138 !important}
+#school a[style*="linear-gradient"]{
+  background:#2f6fd0 !important;border-radius:6px !important;box-shadow:none !important;
+  padding:15px 32px !important;font-size:15px !important}
+
+.form-privacy{font-size:12px;color:#5a6b7d}
+
+/* 下線付きの行が次行と接近しないよう行間を確保 */
+.hero h1{line-height:1.52}
+@media (max-width:600px){
+  .hero{padding:80px 0 72px}
+  .hero-badges{flex-direction:column;gap:12px}
+  .hero .btn-primary{width:100%;justify-content:center}
+  .sol-card,.cur-card,.price-card{padding:30px 22px}
+  #school > .container > div[style]{padding:30px 22px !important}
+}
 </style>
 </head>
 <body>
