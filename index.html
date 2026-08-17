@@ -833,6 +833,31 @@ footer a { color: #7fb2f0; text-decoration: none; }
 
 /* 下線付きの行が次行と接近しないよう行間を確保 */
 .hero h1{line-height:1.52}
+
+/* ── お悩みカード：罫線区切りの面＋AFTERを左アクセント線で強調 ── */
+.pain-grid{
+  display:grid !important;grid-template-columns:repeat(auto-fit,minmax(300px,1fr)) !important;
+  gap:2px !important;background:#dfe6ee !important;border:1px solid #dfe6ee !important;
+  margin-bottom:48px !important}
+.pain-item{
+  display:flex !important;flex-direction:column !important;
+  background:#fff !important;border:0 !important;border-radius:0 !important;box-shadow:none !important}
+.pain-before{
+  padding:28px 26px 20px !important;border:0 !important;border-bottom:0 !important}
+.pain-icon-row{display:flex;gap:14px;align-items:flex-start}
+.pain-icon{
+  flex-shrink:0;width:38px;height:38px;display:flex;align-items:center;justify-content:center;
+  font-size:17px;background:#f6f8fb;border-radius:4px;opacity:1;margin-top:0}
+.pain-text{font-size:14px;color:#5a6b7d;line-height:1.75}
+.pain-text strong{color:#0b2138;display:block;margin-bottom:6px;font-size:14.5px;font-weight:900}
+.pain-after{
+  margin:0 26px 26px !important;padding:14px 16px !important;
+  background:#f6f8fb !important;border-left:3px solid #2f6fd0 !important}
+.pain-label{font-size:10.5px;font-weight:900;letter-spacing:.12em;margin-bottom:6px}
+.pain-label.before{color:#8b9aac}
+.pain-label.after{color:#2f6fd0}
+.pain-after-text{font-size:13px;color:#0b2138;font-weight:700;line-height:1.65}
+
 @media (max-width:600px){
   .hero{padding:80px 0 72px}
   .hero-badges{flex-direction:column;gap:12px}
