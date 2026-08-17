@@ -834,16 +834,25 @@ footer a { color: #7fb2f0; text-decoration: none; }
 /* 下線付きの行が次行と接近しないよう行間を確保 */
 .hero h1{line-height:1.52}
 
-/* ── お悩みカード：罫線区切りの面＋AFTERを左アクセント線で強調 ── */
+/* ── お悩み：均等カードグリッドをやめ、番号付きの横並びリストに ── */
 .pain-grid{
-  display:grid !important;grid-template-columns:repeat(auto-fit,minmax(300px,1fr)) !important;
-  gap:2px !important;background:#dfe6ee !important;border:1px solid #dfe6ee !important;
-  margin-bottom:48px !important}
-.pain-item{
   display:flex !important;flex-direction:column !important;
-  background:#fff !important;border:0 !important;border-radius:0 !important;box-shadow:none !important}
-.pain-before{
-  padding:28px 26px 20px !important;border:0 !important;border-bottom:0 !important}
+  background:none !important;border:0 !important;gap:0 !important;
+  margin-bottom:48px !important;
+  counter-reset:pain-idx;
+  border-top:1px solid #dfe6ee}
+.pain-item{
+  display:flex !important;flex-direction:row !important;align-items:center !important;
+  gap:32px;
+  background:none !important;border:0 !important;border-radius:0 !important;box-shadow:none !important;
+  border-bottom:1px solid #dfe6ee !important;
+  padding:26px 0}
+.pain-item::before{
+  counter-increment:pain-idx;
+  content:counter(pain-idx,decimal-leading-zero);
+  flex-shrink:0;width:34px;
+  font-size:12px;font-weight:900;color:#2f6fd0;letter-spacing:.06em}
+.pain-before{flex:1 1 56%;padding:0 !important;border:0 !important}
 .pain-icon-row{display:flex;gap:14px;align-items:flex-start}
 .pain-icon{
   flex-shrink:0;width:38px;height:38px;display:flex;align-items:center;justify-content:center;
@@ -851,12 +860,18 @@ footer a { color: #7fb2f0; text-decoration: none; }
 .pain-text{font-size:14px;color:#5a6b7d;line-height:1.75}
 .pain-text strong{color:#0b2138;display:block;margin-bottom:6px;font-size:14.5px;font-weight:900}
 .pain-after{
-  margin:0 26px 26px !important;padding:14px 16px !important;
+  flex:1 1 36%;margin:0 !important;padding:14px 18px !important;
   background:#f6f8fb !important;border-left:3px solid #2f6fd0 !important}
 .pain-label{font-size:10.5px;font-weight:900;letter-spacing:.12em;margin-bottom:6px}
 .pain-label.before{color:#8b9aac}
 .pain-label.after{color:#2f6fd0}
 .pain-after-text{font-size:13px;color:#0b2138;font-weight:700;line-height:1.65}
+
+@media (max-width:820px){
+  .pain-item{flex-direction:column !important;align-items:stretch !important;gap:14px;padding:22px 0}
+  .pain-item::before{width:auto;margin-bottom:4px}
+  .pain-before,.pain-after{flex:1 1 auto}
+}
 
 @media (max-width:600px){
   .hero{padding:80px 0 72px}
